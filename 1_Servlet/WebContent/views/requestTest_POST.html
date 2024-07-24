@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>POST 방식으로 요청해보기</h1>
+
+	<p>
+		특징1. POST 방식으로 요청시 URL의 Body 영역에 데이터를 포함시켜서 넘김 <br>
+		=> 사용자가 입력한 값들이 url에 노출되지않음 (get은 Header에 포함시켜서 보임) <br>
+		=> 즉, 로그인이나 회원가입같은경우 POST방식이 적합하다 <br><br>
+
+		특징2. Body 영역은 전송길이에 제한 없음 <br>
+		=> 즉, 게시판작성이나 이미지 이런거는 POST방식이 적합하다 <br><br>
+
+		특징3. 단순 url은 저장가능하지만, 데이터가 url에 노출되어있지않아 <br>
+			   검색했던 화면 뭐 이런거는 안됨 <br><br>
+		
+		특징4. Timeout이 존재해서 페이지요청, 기다리는시간이 필요. 좀 느림
+	</p>
+
+	<h2>개인정보 입력</h2>
+
+	<p>당신의 개인정보를 입력해주세요. 입력 후 확인 버튼 눌러주세요.</p>
+
+	<form action="/1_Servlet/test2.do" method="post">
+
+		<ul>
+			<li>
+				이름 : <input type="text" name="name">
+				<!-- input의 name은 key값.. 필수 -->
+			</li>
+			<li>
+				성별 :
+				<input type="radio" name="gender" value="M">남자
+				<input type="radio" name="gender" value="F">여자
+				<!-- name이 같아야 한개만 선택하는 radid btn 생성가능 -->
+				<!-- 이거는 밸류 넣어야됨 -->
+			</li>
+			<li>
+				나이 : <input type="number" name="age">
+			</li>
+			<li>
+				거주지 :
+				<select name="city">
+					<option>서울</option>
+					<option>경기</option>
+					<option>강원</option>
+					<option>충청</option>
+					<option>제주</option>
+				</select>
+			</li>
+			<li>
+				키 : <input type="range" name="height" min="140" max="200">
+			</li>
+			<li>
+				좋아하는 음식 (다중선택가능) :
+				<input type="checkbox" name="food" value="한식"> 한식 <!-- 이거는 밸류 넣어야됨 -->
+				<input type="checkbox" name="food" value="중식"> 중식
+				<input type="checkbox" name="food" value="일식"> 일식
+				<input type="checkbox" name="food" value="양식"> 양식
+				<input type="checkbox" name="food" value="분식"> 분식
+			</li>
+			<li>
+				<input type="submit"> <!-- form 안에잇는 inputtype submit이어야 값을 보낼수있음! -->
+				<input type="reset">
+			</li>
+		</ul>
+
+	</form>
+
+</body>
+</html>
